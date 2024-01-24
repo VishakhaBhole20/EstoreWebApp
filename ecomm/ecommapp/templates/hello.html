@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewimport" content="width=device-width">
+    <title>Document</title>
+</head>   
+<body>
+    <i>This is home page</i>
+    <h1>this is heading tag from templates</h1>
+    <strong>my name is {{name}} and am {{age}} years old</strong>
+    {% if X > y %}
+    <p>{{X}} is greater</p>
+    {% else %}
+    <p>{{y}} is greater</p>
+    {% endif %}
+
+    {% for  X  in l %}
+        {{X}} <br>
+    {% endfor %}
+    {% for X in products %}
+         <!---- {{X}} <br> -->
+         {{X.name}}
+         {{X.price}}
+         {{X.cat}} <br><hr>
+    {% endfor %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>price</th>
+            <th>category</th>
+        </tr>
+        {% for i in products %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.category}}</td>
+            </tr> 
+            {%  endfor %}
+    </table>  
+    <button onclick="greet()">click me</button>          
+</body>
+</html>
